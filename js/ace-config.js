@@ -1,12 +1,17 @@
+//import { Content } from "./content";
+//const content = require('./content');
 
 //global ace editor instance
 let editor;
 //global ace editor extension for beautify
 let beautify;
-//editor id list
-let editorList = [];
 //current activated editor
-let currentEditor;
+let currentEditorId= '0';
+let editorList = ['0'];
+//content of each tab
+let contentList = [];
+//current content of the current sheet.
+let currentContent;
 
 (
     function () {
@@ -16,19 +21,16 @@ let currentEditor;
         editor.session.setMode("ace/mode/json");
         editor.session.setUseWrapMode(true);
         console.log('initializing the ace')
-        //getDefaultData("L")
-        //Initial editor id.
-        editorList.push("sheet1");
-
-        //initialize current editor to the initial editor.
-        currentEditor = editorList[0];
     }
 )();
 
 editor.session.on('change', function (delta) {
+    console.log('Making changes to editor ' + currentEditorId)
+    currentContent = editor.getValue();
     // delta.start, delta.end, delta.lines, delta.action
     //console.log(delta);
     //console.log(editor.getValue());
+    
 });
 
 /**
@@ -40,7 +42,7 @@ $("#addEditor").click(function () {
         return;
     }
     console.log('add button');
-    var id = 'sheet' + (editorList.length + 1);
+    var id = editorList.length;
     var r = $('<button type="button" class="editor-button btn btn-success" id="' + id + '">Sheet-' + (editorList.length + 1) + '</button>');
     editorList.push(id);
 
@@ -48,10 +50,16 @@ $("#addEditor").click(function () {
 });
 
 $(document).on('click', '.editor-button', function ($event) {
-    alert(this.id);
-    //todo
-    //assign ace editor session to each button
+    console.log('Current working sheet: ' + this.id);
+    if (currentEditorId !== this.id) {
+        console.log('previous editor ' + currentEditorId + ', new editor ' + this.id);
+        //editor has changed, store data in the list
+        contentList[currentEditorId] = currentContent;
+    }
+    //new editor id
+    currentEditorId = this.id;
     //load content based on the selected editor id
+    editor.session.setValue(contentList[currentEditorId]);
 });
 
 /**
