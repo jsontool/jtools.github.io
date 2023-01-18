@@ -18,6 +18,7 @@ let currentContent;
         editor = ace.edit("editor");
         beautify = ace.require("ace/ext/beautify");
         editor.setTheme("ace/theme/crimson_editor");
+        editor.setShowPrintMargin(false);
         editor.session.setMode("ace/mode/json");
         editor.session.setUseWrapMode(true);
         console.log('initializing the ace')
@@ -43,7 +44,7 @@ $("#addEditor").click(function () {
     }
     console.log('add button');
     var id = editorList.length;
-    var r = $('<button type="button" class="pure-button" id="' + id + '">Tab - ' + (editorList.length + 1) + '</button>');
+    var r = $('<button type="button" class="pure-button editor-button" id="' + id + '">Tab - ' + (editorList.length + 1) + '</button>');
     editorList.push(id);
 
     $("#editorList").append(r);

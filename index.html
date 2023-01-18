@@ -18,12 +18,25 @@
 </head>
 
 <body>
-    <div class="container m-5">
+    <nav class="navbar bg-body-tertiary mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./logo.svg" alt="Logo" width="50" height="25" class="d-inline-block align-text-top">
+                JsonTool
+            </a>
+
+            <span class="navbar-text">
+                1.0.0v
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
         <div class="row">
             <div class="col-1" id="editorList">
                 <!--Dynamic button list-->
                 <button type="button" class="button-xlarge pure-button" id="addEditor">Add</button>
-                <button type="button" class="pure-button" id="0">Tab - 1</button>
+                <button type="button" class="pure-button editor-button" id="0">Tab - 1</button>
             </div>
             <div class="col-11">
                 <!--Tool Bar-->
@@ -36,8 +49,13 @@
                 <!--Editor-->
                 <div class="row">
                     <div id="editor"></div>
+                    <div>Happy Coding</div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            Happy coding.........
         </div>
     </div>
 
