@@ -1,6 +1,6 @@
 #editor {
     position: absolute;
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 
@@ -12,4 +12,12 @@
     direction: ltr;
     text-align: left;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    background-color:  beige !important;
+}
+
+.button-xlarge {
+    font-size: 125%;
 }

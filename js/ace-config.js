@@ -43,7 +43,7 @@ $("#addEditor").click(function () {
     }
     console.log('add button');
     var id = editorList.length;
-    var r = $('<button type="button" class="editor-button btn btn-success" id="' + id + '">Sheet-' + (editorList.length + 1) + '</button>');
+    var r = $('<button type="button" class="pure-button" id="' + id + '">Tab - ' + (editorList.length + 1) + '</button>');
     editorList.push(id);
 
     $("#editorList").append(r);
