@@ -18,14 +18,14 @@
 </head>
 
 <body>
-    <nav class="header navbar bg-body-tertiary">
+    <nav class="header navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
                 <img src="./logo.svg" alt="Logo" width="50" height="25" class="d-inline-block align-text-top">
-                JsonTool
+                <span class="text-white">Json Tool</span>
             </a>
-            <span class="navbar-text">
-                1.0.0v
+            <span class="navbar-text text-white">
+                <a href="./release.html" class="text-white" target="_blank">1.0.0v</a>
             </span>
         </div>
     </nav>
@@ -35,13 +35,14 @@
             <div class="d-flex">
                 <div class="" id="editorList">
                     <!--Tab buttons-->
-                    <button type="button" class="button-xlarge pure-button" id="addEditor">Add</button>
-                    <button type="button" class="pure-button editor-button" id="0">Tab - 1</button>
+                    <button type="button" class="button-xlarge button-59" id="addEditor">Add</button>
+                    <button type="button" class="button-59 editor-button" id="0">Tab - 1</button>
                 </div>
                 <!--Tools-->
                 <div class="ms-auto">
-                    <button type="button" class="pure-button float-end" id="format">
+                    <button type="button" class="pure-button float-end hidden" id="format">
                         <i class="fa-solid fa-align-left"></i> Format</button>
+                    <button class="button-59" id="format" role="button">Format</button>
                     <button type="button" class="pure-button float-end hidden" id="minify">
                         <i class="fa-solid fa-align-justify"></i> Minify</button>
                 </div>
@@ -56,8 +57,7 @@
     </div>
 
     <div class="footer">
-        <p>🎉Loving the tool🎉</p>
-        <p>Happy coding</p>
+        <p>🎉I coded this during my leisure time with <a href="https://ace.c9.io/" target="_blank">Ace</a>, Happy coding🎉</p>
     </div>
 
     <!--<script src="./js/ace/ace.js" type="text/javascript" charset="utf-8"></script>-->

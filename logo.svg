@@ -3,7 +3,7 @@
 
  <g>
   <title>Layer 1</title>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="70" id="svg_1" y="428.33333" x="347.66667" stroke-width="0" stroke="#000" fill="#000000">JT</text>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="100" id="svg_4" y="74.99999" x="2.24479" stroke-width="0" stroke="#000" fill="#000000">{JT}</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="70" id="svg_1" y="428.33333" x="347.66667" stroke-width="0" stroke="#fff" fill="#ffffff">JT</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="100" id="svg_4" y="74.99999" x="2.24479" stroke-width="0" stroke="#fff" fill="#ffffff">{JT}</text>
  </g>
 </svg>
