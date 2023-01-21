@@ -1,0 +1,50 @@
+/*overwrite the editor main stype*/
+.ace_editor {
+    position: relative;
+    overflow: hidden;
+    font: 15px / normal "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+    direction: ltr;
+    text-align: left;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#editor {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    display: block;
+}
+
+body {
+    background-color: #f8f9f9 !important;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
+
+.header {
+    height: 5%;
+}
+
+.container {
+    height: auto;
+}
+
+.container .toolbar {
+    display: block;
+}
+
+.container .editorView {
+    display: block;
+}
+
+.footer {
+    height: 5%;
+    text-align: center;
+    padding: 10px;
+}
+
+.toolbar {
+    height: 5%;
+}
