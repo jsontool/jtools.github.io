@@ -44,7 +44,7 @@ $("#addEditor").click(function () {
     }
     console.log('add button');
     var id = editorList.length;
-    var r = $('<button type="button" class="button-59 editor-button" id="' + id + '">editor - ' + (editorList.length + 1) + '</button>');
+    var r = $('<button type="button" class="editor-button" id="' + id + '">editor - ' + (editorList.length + 1) + '</button>');
     editorList.push(id);
 
     $("#editorList").append(r);
