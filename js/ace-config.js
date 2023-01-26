@@ -44,7 +44,7 @@ $("#addEditor").click(function () {
     }
     console.log('add button');
     var id = editorList.length;
-    var r = $('<button type="button" class="button-59 editor-button" id="' + id + '">Tab - ' + (editorList.length + 1) + '</button>');
+    var r = $('<button type="button" class="button-59 editor-button" id="' + id + '">editor - ' + (editorList.length + 1) + '</button>');
     editorList.push(id);
 
     $("#editorList").append(r);
@@ -52,6 +52,12 @@ $("#addEditor").click(function () {
 
 $(document).on('click', '.editor-button', function ($event) {
     console.log('Current working sheet: ' + this.id);
+    //change styles of buttons
+    document.getElementById(this.id).classList.add('active');
+    document.getElementById(this.id).classList.remove('inactive');
+    document.getElementById(currentEditorId).classList.add('inactive');
+    document.getElementById(currentEditorId).classList.remove('active');
+
     if (currentEditorId !== this.id) {
         console.log('previous editor ' + currentEditorId + ', new editor ' + this.id);
         //editor has changed, store data in the list

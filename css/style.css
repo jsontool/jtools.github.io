@@ -41,6 +41,7 @@ body {
 
 .container .editorView {
     display: block;
+    border-top: 5px solid #99c4f3;
 }
 
 .footer {
@@ -51,15 +52,25 @@ body {
 
 .toolbar {
     height: 5%;
+    margin-bottom: -2px;
 }
 
+.active {
+  background-color: #99c4f3 !important;
+  border: 0px !important;
+}
+
+.inactive {
+  background-color: #fff !important;
+  border: 1px solid #000 !important;
+}
 
 
 /* Format Buttons **/
 .button-59 {
   align-items: center;
   background-color: #fff;
-  border: 2px solid #000;
+  border: 1px solid #000;
   box-sizing: border-box;
   color: #000;
   cursor: pointer;
