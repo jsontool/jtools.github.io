@@ -1,18 +1,22 @@
-//import { Content } from "./content";
-//const content = require('./content');
+import { Content } from "./content.js";
+const { range, filter, map } = rxjs;
 
 //global ace editor instance
 let editor;
 //global ace editor extension for beautify
 let beautify;
 //current activated editor
-let currentEditorId= '0';
-let editorList = ['0'];
-//content of each tab
-let contentList = [];
+let currentEditorId = 0;
 //current content of the current sheet.
-let currentContent;
+let currentContent = '';
 
+//let KEY_TAB_COUNT = "tab_count";
+
+let contents = [];
+
+/**
+ * Initialize the editor.
+ */
 (
     function () {
         editor = ace.edit("editor");
@@ -21,52 +25,71 @@ let currentContent;
         editor.setShowPrintMargin(false);
         editor.session.setMode("ace/mode/json");
         editor.session.setUseWrapMode(true);
-        console.log('initializing the ace')
+        //previousTabCount = localStorage.getItem(KEY_TAB_COUNT);
+
+        //add the initial editor with id 0.
+        addTab(currentEditorId).then(
+            function (value) {
+                currentContent = contents.find(item => item.id == currentEditorId).value;
+                selectEditor(currentEditorId);
+            },
+            function (error) {
+                console.error(error)
+            }
+        );
     }
 )();
 
+/**
+ * Editor content change event.
+ */
 editor.session.on('change', function (delta) {
-    console.log('Making changes to editor ' + currentEditorId)
     currentContent = editor.getValue();
-    // delta.start, delta.end, delta.lines, delta.action
-    //console.log(delta);
-    //console.log(editor.getValue());
-    
 });
 
 /**
- * Add editor button click
+ * Add editor button click event.
  */
 $("#addEditor").click(function () {
-    if (editorList.length >= 5) {
-        console.log('Max allowed editor count is 5')
-        return;
-    }
-    console.log('add button');
-    var id = editorList.length;
-    var r = $('<button type="button" class="editor-button" id="' + id + '">editor - ' + (editorList.length + 1) + '</button>');
-    editorList.push(id);
-
-    $("#editorList").append(r);
+    var id = contents[contents.length - 1].id + 1;
+    addTab(id);
 });
 
+/**
+ * User navigating though different editors.
+ */
 $(document).on('click', '.editor-button', function ($event) {
-    console.log('Current working sheet: ' + this.id);
-    //change styles of buttons
-    document.getElementById(this.id).classList.add('active');
-    document.getElementById(this.id).classList.remove('inactive');
-    document.getElementById(currentEditorId).classList.add('inactive');
-    document.getElementById(currentEditorId).classList.remove('active');
+    let currentTabAvailable = contents.findIndex(item => item.id == this.id);
+    if (currentEditorId != this.id && currentTabAvailable != -1) {
+        document.getElementById(this.id).classList.add('active');
+        document.getElementById(this.id).classList.remove('inactive');
+        document.getElementById(currentEditorId).classList.add('inactive');
+        document.getElementById(currentEditorId).classList.remove('active');
 
-    if (currentEditorId !== this.id) {
-        console.log('previous editor ' + currentEditorId + ', new editor ' + this.id);
         //editor has changed, store data in the list
-        contentList[currentEditorId] = currentContent;
+        //localStorage.setItem(currentEditorId, currentContent);
+        contents.find(item => item.id == currentEditorId).value = currentContent;
+        currentEditorId = this.id;
+    } else if (currentEditorId == 0) {
+        document.getElementById(currentEditorId).classList.add('active');
+        document.getElementById(currentEditorId).classList.remove('inactive');
     }
-    //new editor id
-    currentEditorId = this.id;
+
     //load content based on the selected editor id
-    editor.session.setValue(contentList[currentEditorId]);
+    currentContent = contents.find(item => item.id == currentEditorId).value;
+    editor.session.setValue(currentContent);
+});
+
+/**
+ * editor button's close button click event.
+ */
+$(document).on('click', '.close', function ($event) {
+    const editorId = this.parentElement.id;
+
+    deleteTab(editorId).then(() => {
+    }, (error) => {
+        console.error(error);
+    });
 });
 
 /**
@@ -84,6 +107,41 @@ $("#minify").click(function () {
 });
 
 /**
+ * Add a tab.
+ */
+async function addTab(id) {
+    if (contents.length >= 5) {
+        return;
+    }
+    var r = $('<div class="editor-button inactive" id="' + id + '">editor - ' + id + '<i class="close fa-solid fa-close"></i></div>');
+    $("#editorList").append(r);
+    contents.push(new Content(id, ""));
+}
+
+/**
+ * Remove a tab.
+ */
+async function deleteTab(tabId) {
+    if (contents.length == 1) {
+        console.info('cannot remove all editors');
+        return;
+    }
+    contents = contents.filter(item => item.id != tabId);
+    let parent = document.getElementById(tabId);
+    parent.remove();
+
+    //set the current id
+    currentEditorId = contents[contents.length - 1].id;
+}
+
+/**
+ * Click on a tab
+ */
+function selectEditor(id) {
+    document.getElementById(id).click();
+}
+
+/**
  * Remove all white spaces from the json.
  */
 function minify() {
@@ -99,6 +157,22 @@ function format() {
     //let originalValue = editor.getValue();
     //editor.setValue(JSON.stringify(originalValue, null, 4));
     beautify.beautify(editor.session);
+}
+
+/**
+ * Stop propergation of events.
+ * @param {event} e 
+ */
+function stopPropergation(e) {
+    if (!e) e = window.event;
+
+    if (e.stopPropagation) {
+        //IE9 & Other Browsers
+        e.stopPropagation();
+    } else {
+        //IE8 and Lower
+        e.cancelBubble = true;
+    }
 }
 
 function getDefaultData(type) {

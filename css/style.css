@@ -65,6 +65,9 @@ body {
   border: 1px solid #99c4f3 !important;
 }
 
+.close {
+  margin-left: 10px;
+}
 
 /* Format Buttons **/
 .editor-button {
@@ -86,7 +89,6 @@ body {
   line-height: 24px;
   min-width: 100px;
   outline: 0;
-  padding: 0 17px;
   text-align: center;
   text-decoration: none;
   transition: all .3s;
