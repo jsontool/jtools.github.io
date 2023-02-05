@@ -1,5 +1,4 @@
 import { Content } from "./content.js";
-const { range, filter, map } = rxjs;
 
 //global ace editor instance
 let editor;
