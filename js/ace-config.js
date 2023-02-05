@@ -145,8 +145,8 @@ function selectEditor(id) {
  */
 function minify() {
     let originalValue = editor.getValue();
-    let minified = originalValue.replaceAll(' ', '').replaceAll('\n', '').replaceAll('\t', '');
-    editor.setValue(minified);
+    let json = JSON.parse(originalValue);
+    editor.setValue(JSON.stringify(json));
 }
 
 /**
