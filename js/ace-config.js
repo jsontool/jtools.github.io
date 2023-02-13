@@ -10,6 +10,8 @@ let currentEditorId = 0;
 let currentContent = '';
 
 //let KEY_TAB_COUNT = "tab_count";
+let mode_xml = 'ace/mode/xml';
+let mode_json = 'ace/mode/json';
 
 let contents = [];
 
@@ -22,7 +24,7 @@ let contents = [];
         beautify = ace.require("ace/ext/beautify");
         editor.setTheme("ace/theme/crimson_editor");
         editor.setShowPrintMargin(false);
-        editor.session.setMode("ace/mode/json");
+        editor.session.setMode(mode_json);
         editor.session.setUseWrapMode(true);
         //previousTabCount = localStorage.getItem(KEY_TAB_COUNT);
 
