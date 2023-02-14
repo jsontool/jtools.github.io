@@ -25,10 +25,10 @@ body {
 }
 
 .header {
-    height: 5%;
     background-color: #0057b7;
     color: white;
     margin-bottom: 10px;
+    height: fit-content;
 }
 
 .container {
@@ -45,9 +45,21 @@ body {
 }
 
 .footer {
-    height: 5%;
+    height: fit-content;
     text-align: center;
-    padding: 50px;
+    padding: 0px;
+}
+
+.footer-link {
+  height: auto;
+  background-color: #0057b7;
+  color: white;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.footer-link a {
+  color: white;
 }
 
 .toolbar {

@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
     <title>Json Tool - Format JSON Easily</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/loader.css">
     <!--PURE css library-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
         integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
@@ -29,19 +30,16 @@
 </head>
 
 <body>
-    <nav class="header navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-                <img src="./logo.svg" alt="Logo" width="50" height="25" class="d-inline-block align-text-top">
-                <span class="text-white">Json Tool
-            </a>
-            <span class="navbar-text text-white d-flex">
-                <a href="./release.html" class="text-white" target="_blank">1.0.0v</a>
-            </span>
-        </div>
-    </nav>
+    <!--header-->
+    <div id="header"></div>
 
+    <!--Content-->
     <div class="container">
+        <!--Loader-->
+        <div class="loaderContainer">
+            <span class="loader"></span>
+        </div>
+
         <div class="toolbar">
             <div class="d-flex">
                 <div class="" id="editorList">
@@ -66,32 +64,13 @@
 
     </div>
 
-    <div class="footer">
-
-        <p>🎉I coded this during my leisure time with <a href="https://ace.c9.io/" target="_blank">Ace</a>, Happy
-            coding🎉😃</p>
-        <p>I added this Ad,</p>
-
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1806458885240897"
-            crossorigin="anonymous"></script>
-        <!-- jsontool_bottom_ad_1 -->
-        <ins class="adsbygoogle" 
-            style="display:block" 
-            data-ad-client="ca-pub-1806458885240897"
-            data-ad-slot="7494591457"
-            data-ad-format="auto" 
-            data-full-width-responsive="true">
-        </ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-
+    <!--Footer-->
+    <div id="footer" class="footer">
     </div>
 
     <!--<script src="./js/ace/ace.js" type="text/javascript" charset="utf-8"></script>-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="./js/ace-config.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.14.0/ext-beautify.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

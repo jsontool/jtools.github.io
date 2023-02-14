@@ -33,6 +33,8 @@ let contents = [];
             function (value) {
                 currentContent = contents.find(item => item.id == currentEditorId).value;
                 selectEditor(currentEditorId);
+                //remove the loader
+                $('.loaderContainer').remove();
             },
             function (error) {
                 console.error(error)
@@ -40,6 +42,11 @@ let contents = [];
         );
     }
 )();
+
+$(function() {
+    $('#header').load('component/header.html');
+    $('#footer').load('component/footer.html');
+})
 
 /**
  * Editor content change event.
