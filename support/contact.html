@@ -6,7 +6,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-        $(function(){
+        $(function () {
             $('#header').load('../component/header.html')
             $('#footer').load('../component/footer.html')
         })
@@ -15,11 +15,39 @@
 
 <body>
     <div id="header"></div>
-    
+
     <div class="content">
+        <!--<script type="text/javascript" src="https://form.jotform.com/jsform/230445140590448"></script>-->
+        <div class="container-fluid text-align-center h-100">
+            <div class="w-50 m-auto p-auto">
+                <form>
+                    <h1>Contact Us</h1>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your name">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted" hidden>We'll never share your email with anyone else.</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Message</label>
+                        <textarea type="text" multiple class="form-control" id="exampleInputPassword1" placeholder="Tell us what you want to say"></textarea>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+
     </div>
 
-    <div id="footer"></div>
+    <div id="footer" class="footer"></div>
 </body>
 
 </html>

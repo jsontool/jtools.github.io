@@ -1,53 +1,53 @@
 /*overwrite the editor main stype*/
 .ace_editor {
-    position: relative;
-    overflow: hidden;
-    font: 15px / normal "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
-    direction: ltr;
-    text-align: left;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  font: 15px / normal "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+  direction: ltr;
+  text-align: left;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #editor {
-    position: relative;
-    width: 100%;
-    min-height: 500px;
-    display: block;
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: block;
 }
 
 body {
-    /*background-color: #f8f9f9 !important;*/
-    background-color: #fff !important;
+  /*background-color: #f8f9f9 !important;*/
+  background-color: #fff !important;
 }
 
 .button-xlarge {
-    font-size: 125%;
+  font-size: 125%;
 }
 
 .header {
-    background-color: #0057b7;
-    color: white;
-    margin-bottom: 10px;
-    height: fit-content;
+  background-color: #0057b7;
+  color: white;
+  margin-bottom: 10px;
+  height: fit-content;
 }
 
 .container {
-    height: auto;
+  height: auto;
 }
 
 .container .toolbar {
-    display: block;
+  display: block;
 }
 
 .container .editorView {
-    display: block;
-    border-top: 5px solid #99c4f3;
+  display: block;
+  border-top: 5px solid #99c4f3;
 }
 
 .footer {
-    height: fit-content;
-    text-align: center;
-    padding: 0px;
+  height: fit-content;
+  text-align: center;
+  padding: 0px;
 }
 
 .footer-link {
@@ -63,8 +63,8 @@ body {
 }
 
 .toolbar {
-    height: 5%;
-    margin-bottom: -2px;
+  height: 5%;
+  margin-bottom: -2px;
 }
 
 .active {
@@ -81,6 +81,10 @@ body {
   margin-left: 10px;
 }
 
+.formFooter {
+  visibility: hidden !important;
+}
+
 /* Format Buttons **/
 .editor-button {
   align-items: center;
@@ -92,18 +96,18 @@ body {
   cursor: pointer;
   display: inline-flex;
   fill: #000;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 500;
   height: 36px;
   justify-content: center;
-  letter-spacing: -.8px;
+  letter-spacing: -0.8px;
   line-height: 24px;
   min-width: 100px;
   outline: 0;
   text-align: center;
   text-decoration: none;
-  transition: all .3s;
+  transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -119,19 +123,19 @@ body {
   cursor: pointer;
   display: inline-flex;
   fill: #000;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   height: 36px;
   justify-content: center;
-  letter-spacing: -.8px;
+  letter-spacing: -0.8px;
   line-height: 24px;
   min-width: 100px;
   outline: 0;
   padding: 0 17px;
   text-align: center;
   text-decoration: none;
-  transition: all .3s;
+  transition: all 0.3s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -159,4 +163,3 @@ body {
     min-width: 100px;
   }
 }
-
