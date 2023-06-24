@@ -13,6 +13,8 @@ let currentContent = '';
 let mode_xml = 'ace/mode/xml';
 let mode_json = 'ace/mode/json';
 
+const REST_API = 'http://localhost:3000/';
+
 let contents = [];
 
 /**
@@ -43,7 +45,7 @@ let contents = [];
     }
 )();
 
-$(function() {
+$(function () {
     $('#header').load('component/header.html');
     $('#footer').load('component/footer.html');
 })
@@ -86,6 +88,7 @@ $(document).on('click', '.editor-button', function ($event) {
     //load content based on the selected editor id
     currentContent = contents.find(item => item.id == currentEditorId).value;
     editor.session.setValue(currentContent);
+    editor.session.setMode(contents.find(item => item.id == currentEditorId).mode);
 });
 
 /**
@@ -99,6 +102,48 @@ $(document).on('click', '.close', function ($event) {
         console.error(error);
     });
 });
+
+$("#mode").click(function () {
+    let sample = { 'name': 'indika', 'age': 40 };
+    //jsonToXml(sample).then(data => console.log('response: ' + data)).catch(error => console.log(error))
+
+    let xml = '<movie><name>Charlie</name><age>21</age></movie>'
+    xmlToJson(xml).then(data => console.log(data)).catch(e => console.log(e));
+});
+
+async function welcome() {
+    const restponse = await fetch(REST_API + 'welcome', { method: 'get', mode: 'no-cors' });
+}
+
+async function jsonToXml(data) {
+    const respose = await fetch(REST_API + 'toxml', {
+        method: 'post',
+        mode: 'no-cors',
+        // cache: 'no-cache',
+        headers: {
+            'Accept': 'application/xml',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    return respose.text();
+}
+
+async function xmlToJson(data) {
+    const respose = await fetch(REST_API + 'tojson', {
+        method: 'post',
+        mode: 'no-cors',
+        // cache: 'no-cache',
+        headers: {
+            //'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: data
+    });
+    console.log(respose)
+    return respose.text();
+}
 
 /**
  * Format button click event.
@@ -123,7 +168,7 @@ async function addTab(id) {
     }
     var r = $('<div class="editor-button inactive" id="' + id + '">editor - ' + id + '<i class="close fa-solid fa-close"></i></div>');
     $("#editorList").append(r);
-    contents.push(new Content(id, ""));
+    contents.push(new Content(id, "", mode_json));
 }
 
 /**
